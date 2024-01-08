@@ -51,6 +51,9 @@ func (c *Cache[T]) removeNode(node *Node[T]) {
 
 func (c *Cache[T]) evict() {
 	obj := c.tail
+	if c.hand != nil {
+		obj = c.hand
+	}
 	for obj != nil && obj.visited {
 		obj.visited = false
 		obj = c.tail
@@ -81,7 +84,7 @@ func (c *Cache[T]) Access(x T) {
 		c.addToHead(newNode)
 		c.cache[x] = newNode
 		c.size++
-		newNode.visited = true
+		newNode.visited = false
 	}
 }
 

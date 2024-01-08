@@ -11,5 +11,5 @@ func Example() {
 	cache.Show()
 
 	// Output:
-	// D (Visited: true) -> C (Visited: true) -> A (Visited: false)
+	// D (Visited: false) -> C (Visited: false) -> B (Visited: false)
 }
